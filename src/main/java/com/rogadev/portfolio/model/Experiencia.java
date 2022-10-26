@@ -3,9 +3,12 @@ package com.rogadev.portfolio.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import lombok.Getter;
@@ -18,27 +21,32 @@ public class Experiencia {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idExperiencia;
+    private long idExperiencia;
     
-    String lugar, sector, referencia,logoEmpresaImg;
+    private String lugar, sector, referencia,logoEmpresaImg;
     
     @Temporal(javax.persistence.TemporalType.DATE)
-            Date fechaInicio;
+            private Date fechaInicio;
     @Temporal(javax.persistence.TemporalType.DATE)
-            Date fechaFinalizacion;
+            private Date fechaFinalizacion;
+    
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
     public Experiencia() {
     }
 
-    public Experiencia(int idExperiencia, String lugar, String sector, String referencia, String logoEmpresaImg, Date fechaInicio, Date fechaFinalizacion) {
-        this.idExperiencia = idExperiencia;
+    public Experiencia(String lugar, String sector, String referencia, String logoEmpresaImg, Date fechaInicio, Date fechaFinalizacion, Usuario usuario) {
         this.lugar = lugar;
         this.sector = sector;
         this.referencia = referencia;
         this.logoEmpresaImg = logoEmpresaImg;
         this.fechaInicio = fechaInicio;
         this.fechaFinalizacion = fechaFinalizacion;
+        this.usuario = usuario;
     }
-    
 
+  
 }

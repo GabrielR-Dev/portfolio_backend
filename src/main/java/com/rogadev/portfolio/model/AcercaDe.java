@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,20 +19,28 @@ public class AcercaDe {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idAcercaDe;
+    private long idAcercaDe;
     
     @NotNull
-    String nombreUsuario, tituloDev, descripcionUsu;
-
+    private String nombreUsuario, tituloDev, descripcionUsu;
+    
+    @OneToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+    
+    
+    
     public AcercaDe() {
     }
 
-    public AcercaDe(int idAcercaDe, String nombreUsuario, String tituloDev, String descripcionUsu) {
-        this.idAcercaDe = idAcercaDe;
+    public AcercaDe(String nombreUsuario, String tituloDev, String descripcionUsu, Usuario usuario) {
         this.nombreUsuario = nombreUsuario;
         this.tituloDev = tituloDev;
         this.descripcionUsu = descripcionUsu;
+        this.usuario = usuario;
     }
+
+
     
     
 }

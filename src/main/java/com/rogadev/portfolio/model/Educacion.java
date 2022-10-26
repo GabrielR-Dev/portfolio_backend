@@ -3,9 +3,12 @@ package com.rogadev.portfolio.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +19,22 @@ import lombok.Setter;
 public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idEducacion;
+    private long idEducacion;
     
     
-    String estudio, logoImg, titulo;
+    private String estudio, logoImg, titulo;
     
-    Date fechaInicio, fechaFinalizacion;
+    private Date fechaInicio, fechaFinalizacion;
+    
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
     public Educacion() {
     }
 
-    public Educacion(long idEducacion, String estudio, String logoImg, String titulo, Date fechaInicio, Date fechaFinalizacion) {
-        this.idEducacion = idEducacion;
+    public Educacion(String estudio, String logoImg, String titulo, Date fechaInicio, Date fechaFinalizacion) {
         this.estudio = estudio;
         this.logoImg = logoImg;
         this.titulo = titulo;

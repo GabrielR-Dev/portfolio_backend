@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,15 +18,19 @@ public class Header {
     
     @Id    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idHeader;
+    private long idHeader;
     
-    String portadaImg, frase;
+    private String portadaImg, frase;
+    
+    @OneToOne()
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+    
 
     public Header() {
     }
 
-    public Header(int idHeader, String portadaImg, String frase) {
-        this.idHeader = idHeader;
+    public Header(String portadaImg, String frase) {
         this.portadaImg = portadaImg;
         this.frase = frase;
     }
