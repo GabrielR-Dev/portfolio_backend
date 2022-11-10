@@ -27,9 +27,9 @@ public class Educacion {
     private Date fechaInicio, fechaFinalizacion;
     
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private Usuario usuario;*/
 
     public Educacion() {
     }

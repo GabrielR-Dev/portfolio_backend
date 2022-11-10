@@ -31,21 +31,21 @@ public class Experiencia {
             private Date fechaFinalizacion;
     
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private Usuario usuario;*/
 
     public Experiencia() {
     }
 
-    public Experiencia(String lugar, String sector, String referencia, String logoEmpresaImg, Date fechaInicio, Date fechaFinalizacion, Usuario usuario) {
+    public Experiencia(String lugar, String sector, String referencia, String logoEmpresaImg, Date fechaInicio, Date fechaFinalizacion/*, Usuario usuario*/) {
         this.lugar = lugar;
         this.sector = sector;
         this.referencia = referencia;
         this.logoEmpresaImg = logoEmpresaImg;
         this.fechaInicio = fechaInicio;
         this.fechaFinalizacion = fechaFinalizacion;
-        this.usuario = usuario;
+        //this.usuario = usuario;
     }
 
   

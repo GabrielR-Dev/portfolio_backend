@@ -11,21 +11,23 @@ import org.springframework.stereotype.Service;
 public class AcercaDeService implements IAcercaDe{
     
     @Autowired
-    public AcercaDeRepository a;
+    private AcercaDeRepository acercaDeRepository;
 
     @Override
     public void crearAcercaDe(AcercaDe acercade) {
-        a.save(acercade);
+        acercaDeRepository.save(acercade);
     }
 
     @Override
     public List<AcercaDe> verAcercaDe() {
-        return (List<AcercaDe>) a.findAll();
+        return acercaDeRepository.findAll();
     }
 
     @Override
-    public void editarAcercaDe(AcercaDe acercade) {
-
+    public void editarAcercaDe(AcercaDe acercade){
+        acercaDeRepository.save(acercade);
     }
+    
+
     
 }

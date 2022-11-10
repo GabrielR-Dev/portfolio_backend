@@ -22,9 +22,9 @@ public class Header {
     
     private String portadaImg, frase;
     
-    @OneToOne()
+    /*@OneToOne()
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private Usuario usuario;*/
     
 
     public Header() {

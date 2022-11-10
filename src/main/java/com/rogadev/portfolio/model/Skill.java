@@ -23,9 +23,9 @@ public class Skill {
     
     private String titulo, skillImg, porcentaje;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private Usuario usuario;*/
 
     public Skill() {
     }

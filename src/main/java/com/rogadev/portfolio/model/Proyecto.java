@@ -23,9 +23,9 @@ public class Proyecto {
     
     private String titulo,link, proyectoImg,descripcion;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private Usuario usuario;*/
     
 
     public Proyecto() {
