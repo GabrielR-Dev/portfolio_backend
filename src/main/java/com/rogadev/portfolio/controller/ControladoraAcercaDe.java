@@ -3,7 +3,7 @@ package com.rogadev.portfolio.controller;
 
 import com.rogadev.portfolio.model.AcercaDe;
 import com.rogadev.portfolio.services.AcercaDeService;
-import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,8 +35,8 @@ public class ControladoraAcercaDe {
     
     @GetMapping("/ver")
     @ResponseBody
-    public List<AcercaDe> verAcercaDe (){
-        return acercaDeService.verAcercaDe();
+    public Optional<AcercaDe> verAcercaDe (@RequestParam long usuarioId){
+        return acercaDeService.verAcercaDe(usuarioId);
     }
     
     

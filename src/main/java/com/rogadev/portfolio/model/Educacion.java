@@ -1,7 +1,12 @@
 
 package com.rogadev.portfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,8 +30,16 @@ public class Educacion {
     
     private String estudio, logoImg, titulo;
     
-    private Date fechaInicio, fechaFinalizacion;
+    @Column(columnDefinition = "DATE")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @JsonFormat(pattern="dd-MM-yyyy",timezone="GMT-3")
+    private Date fechaI;
     
+    @Column(columnDefinition = "DATE")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @JsonFormat(pattern="dd-MM-yyyy",timezone="GMT-3")
+    private Date fechaFinalizacion;
+
     
     /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
@@ -34,11 +48,11 @@ public class Educacion {
     public Educacion() {
     }
 
-    public Educacion(String estudio, String logoImg, String titulo, Date fechaInicio, Date fechaFinalizacion) {
+    public Educacion(String estudio, String logoImg, String titulo, Date fechaI, Date fechaFinalizacion) {
         this.estudio = estudio;
         this.logoImg = logoImg;
         this.titulo = titulo;
-        this.fechaInicio = fechaInicio;
+        this.fechaI = fechaI;
         this.fechaFinalizacion = fechaFinalizacion;
     }
     

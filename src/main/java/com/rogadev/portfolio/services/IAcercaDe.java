@@ -5,12 +5,12 @@
 package com.rogadev.portfolio.services;
 
 import com.rogadev.portfolio.model.AcercaDe;
-import java.util.List;
+import java.util.Optional;
 
 
 public interface IAcercaDe {
     public void crearAcercaDe(AcercaDe acercade);
-    public List<AcercaDe> verAcercaDe();
+    public Optional<AcercaDe> verAcercaDe(long id);
     public void editarAcercaDe (AcercaDe acercade);
     
 }

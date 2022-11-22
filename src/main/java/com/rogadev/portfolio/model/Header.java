@@ -34,6 +34,11 @@ public class Header {
         this.portadaImg = portadaImg;
         this.frase = frase;
     }
+        public Header(long idHeader, String portadaImg, String frase) {
+        this.idHeader = idHeader;
+        this.portadaImg = portadaImg;
+        this.frase = frase;
+    }
     
     
 }

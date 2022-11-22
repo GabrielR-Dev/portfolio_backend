@@ -1,9 +1,10 @@
 
 package com.rogadev.portfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,10 +26,15 @@ public class Experiencia {
     
     private String lugar, sector, referencia,logoEmpresaImg;
     
+    @Column (columnDefinition = "DATE")
     @Temporal(javax.persistence.TemporalType.DATE)
-            private Date fechaInicio;
+    @JsonFormat (pattern = "dd-MM-yyyy", timezone = "GMT-3")
+    private Date fechaInicio;
+    
+    @Column (columnDefinition = "DATE")
     @Temporal(javax.persistence.TemporalType.DATE)
-            private Date fechaFinalizacion;
+    @JsonFormat (pattern = "dd-MM-yyyy", timezone = "GMT-3")
+    private Date fechaFinalizacion;
     
     
     /*@ManyToOne(fetch = FetchType.LAZY)
