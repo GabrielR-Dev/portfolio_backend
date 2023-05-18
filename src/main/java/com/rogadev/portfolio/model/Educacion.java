@@ -4,20 +4,16 @@ package com.rogadev.portfolio.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.*;
+
+import com.rogadev.portfolio.security.model.Usuario;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "educacion")
-@Getter @Setter
+@Data
+@AllArgsConstructor @NoArgsConstructor
 public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,21 +39,9 @@ public class Educacion {
     @JsonFormat(pattern="dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
     private String fechaF;
 
-    
-    /*@ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;*/
+    private Usuario idUsuario;
 
-    public Educacion() {
-    }
-
-    public Educacion(String estudio, String logoImg, String titulo, String fechaI, String fechaF) {
-        this.estudio = estudio;
-        this.logoImg = logoImg;
-        this.titulo = titulo;
-        this.fechaI = fechaI;
-        this.fechaF = fechaF;
-    }
-    
-    
 }

@@ -3,21 +3,15 @@ package com.rogadev.portfolio.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.*;
+
+import com.rogadev.portfolio.security.model.Usuario;
+import lombok.*;
 
 @Entity
 @Table(name = "experiencias")
-@Getter @Setter
+@Data
+@AllArgsConstructor @NoArgsConstructor
 public class Experiencia {
     
     @Id
@@ -48,33 +42,9 @@ public class Experiencia {
     @JsonFormat(pattern="dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
     private String fechaFinalizacion;
     
-    
-    /*@ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;*/
+    private Usuario idUsuario;
 
-    public Experiencia() {
-    }
-
-    public Experiencia(String lugar, String sector, String referencia, String logoEmpresaImg, String fechaInicio, String fechaFinalizacion/*, Usuario usuario*/) {
-        this.lugar = lugar;
-        this.sector = sector;
-        this.referencia = referencia;
-        this.logoEmpresaImg = logoEmpresaImg;
-        this.fechaInicio = fechaInicio;
-        this.fechaFinalizacion = fechaFinalizacion;
-        //this.usuario = usuario;
-    }
-
-    public Experiencia(long idExperiencia, String lugar, String sector, String referencia, String logoEmpresaImg, String fechaInicio, String fechaFinalizacion) {
-        this.idExperiencia = idExperiencia;
-        this.lugar = lugar;
-        this.sector = sector;
-        this.referencia = referencia;
-        this.logoEmpresaImg = logoEmpresaImg;
-        this.fechaInicio = fechaInicio;
-        this.fechaFinalizacion = fechaFinalizacion;
-    }
-
-  
 }

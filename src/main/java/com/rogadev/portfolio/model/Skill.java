@@ -1,21 +1,15 @@
 
 package com.rogadev.portfolio.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.*;
+
+import com.rogadev.portfolio.security.model.Usuario;
+import lombok.*;
 
 @Entity
 @Table(name = "skills")
-@Getter @Setter
+@Data
+@AllArgsConstructor @NoArgsConstructor
 public class Skill {
     
     @Id
@@ -30,20 +24,9 @@ public class Skill {
     
     @Column(nullable = false)
     private String porcentaje;
-    
-    /*@ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;*/
+    private Usuario idUsuario;
 
-    public Skill() {
-    }
-
-    public Skill(String titulo, String skillImg, String porcentaje) {
-        this.titulo = titulo;
-        this.skillImg = skillImg;
-        this.porcentaje = porcentaje;
-    }
-    
-    
-    
 }

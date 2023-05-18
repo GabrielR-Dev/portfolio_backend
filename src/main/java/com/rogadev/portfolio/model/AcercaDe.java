@@ -1,20 +1,20 @@
 
 package com.rogadev.portfolio.model;
 
+import com.rogadev.portfolio.security.model.Usuario;
 import com.sun.istack.NotNull;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "acercade"/*, uniqueConstraints = ""*/)
+@Table
 @Getter @Setter
+@AllArgsConstructor @NoArgsConstructor
 public class AcercaDe {
     
     @Id
@@ -30,33 +30,8 @@ public class AcercaDe {
     @Column(nullable = false, length = 250)
     private String descripcionUsu;
     
-    //@OneToOne
-    //@JoinColumn(name = "id_usuario")
-    //    private Usuario usuario;
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_usuario")
+    private Usuario idUsuario;
 
-    
-    
-    public AcercaDe() {
-    }
-
-    public AcercaDe(String nombreUsuario, String tituloDev, String descripcionUsu/*, Usuario usuario*/) {
-        this.nombreUsuario = nombreUsuario;
-        this.tituloDev = tituloDev;
-        this.descripcionUsu = descripcionUsu;
-        //this.usuario = usuario;
-    }
-
-    public AcercaDe(long idAcercaDe, String nombreUsuario, String tituloDev, String descripcionUsu) {
-        this.idAcercaDe = idAcercaDe;
-        this.nombreUsuario = nombreUsuario;
-        this.tituloDev = tituloDev;
-        this.descripcionUsu = descripcionUsu;
-    }
-
-    
-
-
-
-    
-    
 }
