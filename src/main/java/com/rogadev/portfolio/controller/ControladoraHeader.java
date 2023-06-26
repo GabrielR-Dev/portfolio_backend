@@ -4,6 +4,8 @@ package com.rogadev.portfolio.controller;
 import com.rogadev.portfolio.dto.HeaderDTO;
 import com.rogadev.portfolio.model.Header;
 import com.rogadev.portfolio.services.HeaderService;
+
+import java.nio.file.AccessDeniedException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
-@RequestMapping("/header")
+@RequestMapping("/usuario/header")
 public class ControladoraHeader {
     
     @Autowired
@@ -28,14 +32,14 @@ public class ControladoraHeader {
         return headerService.crearHeader(headerDTO);
     }
     
-    @GetMapping("/ver{id}")
+    @GetMapping("/ver")
     @ResponseBody
-    public ResponseEntity<HeaderDTO> verHeader(@RequestParam long id){
-        return headerService.verHeader(id);
+    public ResponseEntity<HeaderDTO> verHeader() throws AccessDeniedException {
+        return headerService.verHeader();
     }
     
     @PutMapping("/editar")
-    public ResponseEntity<HeaderDTO> editarHeader(@RequestBody HeaderDTO headerDTO){
+    public ResponseEntity<HeaderDTO> editarHeader(@RequestBody HeaderDTO headerDTO) throws AccessDeniedException {
         return headerService.editarHeader(headerDTO);
     } 
     

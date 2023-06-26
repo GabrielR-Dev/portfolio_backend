@@ -4,6 +4,7 @@ package com.rogadev.portfolio.interfaces;
 import com.rogadev.portfolio.dto.EducacionDTO;
 import com.rogadev.portfolio.model.Educacion;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 

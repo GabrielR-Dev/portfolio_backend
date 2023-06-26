@@ -2,10 +2,10 @@
 package com.rogadev.portfolio.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.Date;
+
 import javax.persistence.*;
 
-import com.rogadev.portfolio.security.model.Usuario;
+import com.rogadev.portfolio.security.model.Usuarios;
 import lombok.*;
 
 @Entity
@@ -34,17 +34,17 @@ public class Experiencia {
     //@Temporal(javax.persistence.TemporalType.DATE)
     //@JsonFormat (pattern = "dd-MM-yyyy", timezone = "GMT-3")
     @JsonFormat(pattern="dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
-    private String fechaInicio;
+    private String fechaI;
     
     //@Column (columnDefinition = "DATE", nullable= false)
     //@Temporal(javax.persistence.TemporalType.DATE)
     //@JsonFormat (pattern = "dd-MM-yyyy", timezone = "GMT-3")
     @JsonFormat(pattern="dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
-    private String fechaFinalizacion;
+    private String fechaF;
     
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario")
-    private Usuario idUsuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuario")
+    private Usuarios usuario;
 
 }

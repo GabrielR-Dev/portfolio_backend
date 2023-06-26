@@ -6,10 +6,14 @@ package com.rogadev.portfolio.repository;
 
 import com.rogadev.portfolio.model.Experiencia;
 import java.util.List;
+
+import com.rogadev.portfolio.security.model.Usuarios;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExperienciaRepository extends CrudRepository <Experiencia, Long> {
     public List<Experiencia> findAll ();
+
+    public List<Experiencia> findByUsuario (Usuarios usuario);
 }

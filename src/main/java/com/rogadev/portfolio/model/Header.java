@@ -1,8 +1,7 @@
 
 package com.rogadev.portfolio.model;
 
-import com.rogadev.portfolio.security.model.Usuario;
-import com.sun.istack.NotNull;
+import com.rogadev.portfolio.security.model.Usuarios;
 
 import javax.persistence.*;
 
@@ -10,7 +9,7 @@ import lombok.*;
 
 @Entity
 @Table
-@Data
+@Setter @Getter
 @AllArgsConstructor @NoArgsConstructor
 public class Header {
     
@@ -24,10 +23,8 @@ public class Header {
     @Column(nullable = false, length = 100)
     private String frase;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario")
-    private Usuario idUsuario;
-    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuario", unique = true)
+    private Usuarios usuario;
 
-    
 }

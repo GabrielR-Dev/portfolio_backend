@@ -4,6 +4,7 @@ package com.rogadev.portfolio.interfaces;
 import com.rogadev.portfolio.dto.ExperienciaDTO;
 import com.rogadev.portfolio.model.Experiencia;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.hibernate.type.AnyType;
 import org.springframework.http.ResponseEntity;

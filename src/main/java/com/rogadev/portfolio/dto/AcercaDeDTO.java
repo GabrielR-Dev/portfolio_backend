@@ -7,6 +7,8 @@ package com.rogadev.portfolio.dto;
 import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.rogadev.portfolio.security.model.Usuarios;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,4 +29,6 @@ public class AcercaDeDTO implements Serializable{
     @NotBlank
     @Size(min = 3, max = 250)
     private String descripcionUsu;
+
+    //private Usuarios usuario;
 }

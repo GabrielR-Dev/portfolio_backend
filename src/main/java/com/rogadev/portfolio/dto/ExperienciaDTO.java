@@ -4,14 +4,20 @@ package com.rogadev.portfolio.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.rogadev.portfolio.security.model.Usuarios;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
-public class ExperienciaDTO {
+public class ExperienciaDTO implements Serializable {
     
-    private long idExperiencia;
+    private Long idExperiencia;
     
     @NotBlank
     @Size(min = 5, max=30)
@@ -31,11 +37,12 @@ public class ExperienciaDTO {
 
     @NotBlank
     @Pattern(regexp = "^$|^([0-9]{2}-[0-9]{2}-[0-9]{4})$")
-    private String fechaInicio;
+    private String fechaI;
     
     @NotBlank
     @Pattern(regexp = "^$|^([0-9]{2}-[0-9]{2}-[0-9]{4})$")
-    private String fechaFinalizacion;
-    
-    
+    private String fechaF;
+
+    //private Usuarios usuario;
+
 }

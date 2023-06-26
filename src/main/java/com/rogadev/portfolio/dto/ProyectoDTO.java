@@ -3,14 +3,18 @@ package com.rogadev.portfolio.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.rogadev.portfolio.security.model.Usuarios;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class ProyectoDTO {
+public class ProyectoDTO implements Serializable {
     
-    private long idProyecto;
+    private Long idProyecto;
     
     @NotBlank
     @Size(min = 10, max = 50)
@@ -27,5 +31,7 @@ public class ProyectoDTO {
     @NotBlank
     @Size(min = 10, max = 250)
     private String descripcion;
-    
+
+    //private Usuarios usuario;
+
 }

@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
-@RequestMapping("/proyecto")
-public class ContloladoraProyecto {
+@RequestMapping("/usuario/proyecto")
+public class ControladoraProyecto {
     
     @Autowired
     private ProyectoService proyecServis;

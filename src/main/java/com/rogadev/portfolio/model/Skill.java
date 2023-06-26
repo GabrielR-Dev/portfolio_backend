@@ -3,7 +3,7 @@ package com.rogadev.portfolio.model;
 
 import javax.persistence.*;
 
-import com.rogadev.portfolio.security.model.Usuario;
+import com.rogadev.portfolio.security.model.Usuarios;
 import lombok.*;
 
 @Entity
@@ -25,8 +25,8 @@ public class Skill {
     @Column(nullable = false)
     private String porcentaje;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario")
-    private Usuario idUsuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuario")
+    private Usuarios usuario;
 
 }

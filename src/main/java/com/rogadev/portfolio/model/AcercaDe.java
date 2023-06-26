@@ -1,10 +1,10 @@
 
 package com.rogadev.portfolio.model;
 
-import com.rogadev.portfolio.security.model.Usuario;
-import com.sun.istack.NotNull;
+import com.rogadev.portfolio.security.model.Usuarios;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,8 +30,8 @@ public class AcercaDe {
     @Column(nullable = false, length = 250)
     private String descripcionUsu;
     
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario")
-    private Usuario idUsuario;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuario", unique = true)
+    private Usuarios usuario;
 
 }

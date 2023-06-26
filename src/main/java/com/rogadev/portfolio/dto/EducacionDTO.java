@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.rogadev.portfolio.security.model.Usuarios;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,5 +33,7 @@ public class EducacionDTO implements Serializable {
     @NotBlank
     @Pattern(regexp = "^$|^([0-9]{2}-[0-9]{2}-[0-9]{4})$")
     private String fechaF;
+
+    //private Usuarios usuario;
     
 }

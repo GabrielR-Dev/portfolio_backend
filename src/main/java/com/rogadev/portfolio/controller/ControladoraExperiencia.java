@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
-@RequestMapping("/experiencia")
+@RequestMapping("/usuario/experiencia")
 public class ControladoraExperiencia {
     
     @Autowired

@@ -2,13 +2,11 @@
 package com.rogadev.portfolio.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.time.LocalDate;
-import java.util.Date;
+
 import javax.persistence.*;
 
-import com.rogadev.portfolio.security.model.Usuario;
+import com.rogadev.portfolio.security.model.Usuarios;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "educacion")
@@ -40,8 +38,8 @@ public class Educacion {
     private String fechaF;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario")
-    private Usuario idUsuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuario")
+    private Usuarios usuario;
 
 }
