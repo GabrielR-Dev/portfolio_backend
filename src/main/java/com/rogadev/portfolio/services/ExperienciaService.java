@@ -88,7 +88,6 @@ public class ExperienciaService implements IExperiencia{
 
         Experiencia entity2 = modelMapper.map(expDTO, Experiencia.class);
         entity2.setUsuario(usuario);
-
         expRepo.save(entity2);
         ExperienciaDTO dto = modelMapper.map(entity2, ExperienciaDTO.class);
         return ResponseEntity.ok().body(dto);

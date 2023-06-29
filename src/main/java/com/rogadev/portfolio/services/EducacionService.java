@@ -16,11 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.HeadersBuilder;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import javax.servlet.http.HttpSession;
 
 @Service
 @Validated
@@ -43,7 +41,6 @@ public class EducacionService implements IEducacion{
         educacionDTO.setIdEducacion(null);
 
         Educacion entity = modelMapper.map(educacionDTO, Educacion.class);
-
         entity.setUsuario(usuario);
         educacionRepo.save(entity);
 
@@ -56,12 +53,9 @@ public class EducacionService implements IEducacion{
 
         String nombreUsuarioContex = SecurityContextHolder.getContext().getAuthentication().getName();
         Usuarios usuario = usuarioRepository.findByUsername(nombreUsuarioContex).orElseThrow();
-
          Educacion entity = educacionRepo.findById(id).orElse(null);
 
-        if (entity.getUsuario() != usuario) {
-            throw new AccessDeniedException("Id de la educacion no corresponde al usuario del contexto");
-        }
+        if (entity.getUsuario() != usuario) throw new AccessDeniedException("Id de la educacion no corresponde al usuario del contexto");
 
          EducacionDTO dto = modelMapper.map(entity, EducacionDTO.class);
          return ResponseEntity.ok().body(dto);
@@ -88,9 +82,7 @@ public class EducacionService implements IEducacion{
 
         Educacion entity = educacionRepo.findById(educacionDTO.getIdEducacion()).orElseThrow();
 
-        if(entity.getUsuario() != usuario){
-            throw new AccessDeniedException("El usuario no puede editar un elemento que no le corresponde");
-        }
+        if(entity.getUsuario() != usuario) throw new AccessDeniedException("El usuario no puede editar un elemento que no le corresponde");
 
         Educacion entity2 = modelMapper.map(educacionDTO, Educacion.class);
         entity2.setUsuario(usuario);

@@ -20,21 +20,11 @@ import java.util.function.Function;
 @SpringBootApplication
 @ServletComponentScan
 public class PortfolioApplication {
-	@Autowired
-	 RolRepository rolRepository;
+
 	public static void main(String[] args) {
 
 
 		SpringApplication.run(PortfolioApplication.class, args);
-	}
-
-
-	public void verifiRol(){
-		Boolean exist = rolRepository.existByName("USER");
-		if (!exist) {
-			Roles rol = new Roles();
-			rol.setName("USER");
-		}
 	}
 
 }

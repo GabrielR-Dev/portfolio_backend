@@ -1,0 +1,66 @@
+[33mcommit 7ad38b4f33961c5942c95484bf2142f800a84052[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 67ac679 d3b470f
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Mon Jun 26 21:59:10 2023 -0300
+
+    errores
+
+[33mcommit 67ac679705ea8ef31bac165fb9a593f9b0dc6519[m[33m ([m[1;32mmain[m[33m)[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Sun Jun 25 22:34:24 2023 -0300
+
+    Agregando actualizaciones.
+
+[33mcommit 9b14a79a17466e2c684928e63c718096c2912e65[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Thu May 18 00:02:05 2023 -0300
+
+    Agregando relacion entre tablas bbdd
+
+[33mcommit dd97d1025caece74d27924ca94f0bb3c09204d3a[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Sun May 14 17:07:24 2023 -0300
+
+    estructura del paquete security
+
+[33mcommit 411a0da3f1554384ee95315c4841eaa444f338ca[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Fri May 12 23:34:29 2023 -0300
+
+    Agregando spring security y jwt
+
+[33mcommit d3b470ff60edadfd96dd62b94085d2e14fdaafd1[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Tue Jan 31 23:11:02 2023 -0300
+
+    Actualizacion, creacion api con DTO
+
+[33mcommit 2baf4f09f749abe42be26cfae77297686027037e[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Tue Nov 22 00:38:27 2022 -0300
+
+    Implementaciones de repositorio servicio y controlador a todas las entidades
+
+[33mcommit 1420009baacfb6d4d8a4e1a721bd23e636d08344[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Thu Nov 10 00:42:38 2022 -0300
+
+    Actualizacion entitys (acerca de)
+
+[33mcommit cd0543705d75df31f898634a8e3f2c11ed6068e9[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Mon Oct 31 22:35:57 2022 -0300
+
+    Agregando rutas de entitys (acerca de)
+
+[33mcommit 1167ced0bb2dd51770090cffcd6f9b8bba2556ae[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Wed Oct 26 00:03:44 2022 -0300
+
+    Implementacion de relaciones entre tablas JPA
+
+[33mcommit b6e807bfaa59b5cc72595c45616980982731fb9a[m
+Author: GabrielR-Dev <gabrielomarrolon1996@gmail.com>
+Date:   Sun Oct 23 19:59:57 2022 -0300
+
+    Implementacion de Entitys
