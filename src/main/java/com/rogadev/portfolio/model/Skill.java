@@ -16,7 +16,7 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idSkill;
     
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 30, unique = true)
     private String titulo;
     
     @Column(nullable = false, length = 30)

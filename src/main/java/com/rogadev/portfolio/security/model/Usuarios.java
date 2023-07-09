@@ -25,10 +25,10 @@ public class Usuarios implements UserDetails {
     private String username;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id_usuario")
             ,inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id_role"))
-    private List<Roles> roles = new ArrayList<>();
+    public List<Roles> roles = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -30,7 +30,7 @@ public class CustomUsersDetailsService implements UserDetailsService {
     }
 
     //Método para traernos una lista de autoridades por medio de una lista de roles
-    public Collection<GrantedAuthority> mapToAuthorities(List<Roles> roles){
+    public Collection<GrantedAuthority> mapToAuthorities (List<Roles> roles){
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
@@ -40,7 +40,6 @@ public class CustomUsersDetailsService implements UserDetailsService {
 
         Usuarios usuario = usuariosRepo.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Usuario no encontradooo"));
 
-        //return new Usuarios(usuario.getUsername(), usuario.getPassword(), mapToAuthorities((List<Roles>)usuario.getRoles()), usuario.getIdUsuario() );
         return usuario;
     }
 }
